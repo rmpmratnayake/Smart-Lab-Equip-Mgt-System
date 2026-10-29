@@ -115,57 +115,6 @@ Using **MongoDB Compass**: click *New Connection*, paste `mongodb://127.0.0.1:27
 connect, then open the database `smart_lab_db`. The collections are `users`, `equipment`, `reservations`, `issues`.
 Changes made in the website (add, edit, delete) appear here after pressing the refresh button.
 
-## Database design
-
-Four collections. Relationships use ObjectId references.
-
-```mermaid
-erDiagram
-    USER ||--o{ RESERVATION : makes
-    USER ||--o{ ISSUE : reports
-    EQUIPMENT ||--o{ RESERVATION : "is reserved in"
-    EQUIPMENT ||--o{ ISSUE : "has"
-
-    USER {
-        ObjectId _id PK
-        string name
-        string email UK
-        string password
-        string role
-    }
-    EQUIPMENT {
-        ObjectId _id PK
-        string equipmentCode UK
-        string name
-        string category
-        string location
-        string description
-        number totalQuantity
-        number availableQuantity
-        string condition
-        string status
-    }
-    RESERVATION {
-        ObjectId _id PK
-        ObjectId equipment FK
-        ObjectId user FK
-        date startDate
-        date endDate
-        number quantity
-        string purpose
-        string status
-    }
-    ISSUE {
-        ObjectId _id PK
-        ObjectId equipment FK
-        ObjectId reportedBy FK
-        string title
-        string description
-        string priority
-        string status
-    }
-```
-
 
 ## Validation and error handling
 
@@ -207,8 +156,7 @@ Server side (Express + Mongoose):
 
 ## Notes
 
-This project is for coursework only. The demo passwords are for demonstration.
-
+The demo accounts and passwords are for demonstration.
 
 Designed by,
 R.M.P.M. Ratnayake
