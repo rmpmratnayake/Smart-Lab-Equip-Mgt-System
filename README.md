@@ -158,5 +158,3 @@ Server side (Express + Mongoose):
 
 The demo accounts and passwords are for demonstration.
 
-Designed by,
-R.M.P.M. Ratnayake
